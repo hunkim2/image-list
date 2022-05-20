@@ -1,10 +1,15 @@
+.main {
+    padding: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: 30px;
-    padding: 20px;
     border-bottom:1px solid rgba(0, 0, 0, 0.5);
+    padding-bottom: 20px;
 }
 
 .title {
@@ -15,18 +20,36 @@ header {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
-    grid-auto-rows: minmax(100px auto);
     margin: 30px;
-    padding: 20px;
 }
+
 .image {
     width: 250px;
-    transition: all 0.2s ease-in
+    transition: all 0.2s ease-in;
 
 }
 .image:hover {
     transform: translate(-2px, -2px);
     box-shadow: 8px 8px lightblue;
+}
+
+@media (max-width: 800px) {
+    .image_container {
+        grid-auto-flow: row;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+    }
+    .image {
+        width: 100px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .image_container {
+        grid-auto-flow: row;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
 }
 .modal {
     align-items: center;
@@ -49,13 +72,14 @@ header {
     align-items: center;
     justify-content: center;
     background-color: whitesmoke;
+    padding: 20px;
 }
 
 .modal_image {
     width: 300px;
 }
 .modal_close {
-    float: right;
+    margin-left: auto;
     width: 1.5rem;
     line-height: 1.5rem;
     text-align: center;
@@ -77,4 +101,11 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+#pagination_container > * {
+    margin: 10px;
+}
+
+.error-message {
+    text-align: center;
 }

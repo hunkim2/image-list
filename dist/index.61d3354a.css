@@ -1,9 +1,14 @@
+.main {
+  padding: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
   border-bottom: 1px solid #00000080;
   flex-direction: row;
   align-items: center;
   margin: 30px;
-  padding: 20px;
+  padding-bottom: 20px;
   display: flex;
 }
 
@@ -13,10 +18,8 @@ header {
 
 .image_container {
   grid-template-columns: repeat(5, 1fr);
-  grid-auto-rows: minmax(100px auto);
   gap: 10px;
   margin: 30px;
-  padding: 20px;
   display: grid;
 }
 
@@ -28,6 +31,26 @@ header {
 .image:hover {
   transform: translate(-2px, -2px);
   box-shadow: 8px 8px #add8e6;
+}
+
+@media (max-width: 800px) {
+  .image_container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-flow: row;
+    justify-items: center;
+  }
+
+  .image {
+    width: 100px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .image_container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    justify-items: center;
+  }
 }
 
 .modal {
@@ -50,6 +73,7 @@ header {
   justify-content: center;
   align-items: center;
   margin: 50px;
+  padding: 20px;
   display: flex;
 }
 
@@ -58,11 +82,11 @@ header {
 }
 
 .modal_close {
-  float: right;
   width: 1.5rem;
   text-align: center;
   cursor: pointer;
   border-radius: .25rem;
+  margin-left: auto;
   line-height: 1.5rem;
   transition: background-color .2s ease-in;
 }
@@ -83,6 +107,14 @@ header {
   justify-content: center;
   align-items: center;
   display: flex;
+}
+
+#pagination_container > * {
+  margin: 10px;
+}
+
+.error-message {
+  text-align: center;
 }
 
 /*# sourceMappingURL=index.61d3354a.css.map */
