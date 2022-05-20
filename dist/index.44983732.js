@@ -8,6 +8,7 @@ const getImages = async (pageNumber)=>{
         method: "GET",
         contentType: "application/json"
     });
+    if (!response.ok) return Promise.reject(response);
     const data = await response.json();
     return data;
 };
@@ -62,15 +63,18 @@ const renderPagination = (totalHits)=>{
     pagination.appendChild(forwardOnePage);
     pagination.appendChild(forwardToLastPage);
 };
+const resetHTML = ()=>{
+    document.getElementById("image_container").innerHTML = "";
+};
 const renderImages = (images)=>{
     // Remove previous content
-    document.getElementById("image_container").innerHTML = "";
+    resetHTML();
     images.forEach((image)=>{
         const newImage = document.createElement("img");
         newImage.src = image.largeImageURL;
         newImage.className = "image";
         // Add mango as alt image
-        newImage.setAttribute("alt", image.largeImageURL);
+        newImage.setAttribute("alt", image.tags);
         document.getElementById("image_container").appendChild(newImage);
         const modal = createModal(image);
         document.getElementById("main").appendChild(modal);
@@ -81,9 +85,18 @@ const renderImages = (images)=>{
         );
     });
 };
+const renderError = ()=>{
+    const container = document.getElementById('main');
+    const errorMessage = document.createElement('h1');
+    errorMessage.innerText = "Woof Woof! Looks like the page you're looking for isn't here! Woof!";
+    errorMessage.className = "error-message";
+    container.appendChild(errorMessage);
+};
 getImages(currentPage).then((images)=>{
     renderImages(images.hits);
     renderPagination(images.totalHits);
+}).catch((error)=>{
+    renderError();
 });
 
 //# sourceMappingURL=index.44983732.js.map
