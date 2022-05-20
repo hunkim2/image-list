@@ -34,11 +34,12 @@ const createModal = (image)=>{
     modalContent.appendChild(imageTag);
     return modal;
 };
-const appendImages = async (pageNumber)=>{
-    const images = await getImages(pageNumber);
+const renderImages = async (pageNumber)=>{
+    const data = await getImages(pageNumber);
     // Remove previous content
     document.getElementById("image_container").innerHTML = "";
-    images.hits.forEach((image)=>{
+    renderPagination(data.totalHits);
+    data.hits.forEach((image)=>{
         const newImage = document.createElement("img");
         newImage.src = image.largeImageURL;
         newImage.className = "image";
