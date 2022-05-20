@@ -2,9 +2,8 @@
   "name": "forbes-image-list",
   "version": "1.0.0",
   "description": "Forbes Image List",
-  "main": "index.js",
   "scripts": {
-    "start": "open http://localhost:8080 && node server.js"
+    "start": "parcel src/index.html"
   },
   "author": "Hun Kim",
   "license": "ISC",
@@ -15,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/hunkim2/image-list/issues"
   },
-  "homepage": "https://github.com/hunkim2/image-list#readme"
+  "homepage": "https://github.com/hunkim2/image-list#readme",
+  "devDependencies": {
+    "parcel": "^2.5.0"
+  }
 }

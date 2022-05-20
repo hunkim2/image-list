@@ -1,0 +1,51 @@
+.image_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px auto);
+    margin: 30px;
+    padding: 20px;
+}
+.image {
+    width: 250px;
+    transition: all 0.2s ease-in
+
+}
+.image:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px lightblue;
+}
+.modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    transform: scale(1.1);
+}
+.modal_image {
+    width: 300px;
+}
+.modal_close {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+.modal_close:hover {
+    background-color: darkgray;
+}
+.show-modal {
+    display: flex;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
