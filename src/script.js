@@ -21,7 +21,7 @@ const getImages = async (pageNumber) => {
 
 const toggleModel = (id) => {
     const modal = document.getElementById(`modal_${id}`);
-    modal.classList.toggle("show-modal");
+    modal.classList.toggle("modal__show");
 }
 
 const createModal = (image) => {
@@ -30,30 +30,30 @@ const createModal = (image) => {
     modal.className = "modal";
 
     const modalContent = document.createElement("div");
-    modalContent.className = "modal_content";
+    modalContent.className = "modal__content";
     modal.appendChild(modalContent);
 
     const closeBtn = document.createElement("span");
-    closeBtn.className = "modal_close";
+    closeBtn.className = "modal__close";
     closeBtn.innerHTML = "&times;";
-    closeBtn.id = `close_btn_${image.id}`
+    closeBtn.id = `close-btn__${image.id}`
     modalContent.appendChild(closeBtn);
 
     const modalImg = document.createElement("img");
-    modalImg.className = "modal_image";
+    modalImg.className = "modal__image";
     modalImg.src = image.largeImageURL;
     modalContent.appendChild(modalImg);
 
     const imageTag = document.createElement("p");
     imageTag.innerHTML = image.tags;
-    imageTag.className = "modal_tag"
+    imageTag.className = "modal__tag"
     modalContent.appendChild(imageTag);
 
     return modal;
 }
 
 const renderPagination = (totalHits) => {
-    const pagination = document.getElementById("pagination_container");
+    const pagination = document.getElementById("pagination-container");
     let totalPages = Math.ceil(totalHits / 10);
 
     const backToFirstPage = document.createElement("a");
@@ -85,7 +85,7 @@ const renderPagination = (totalHits) => {
 }
 
 const resetHTML = () => {
-    document.getElementById("image_container").innerHTML = "";
+    document.getElementById("image-gallery").innerHTML = "";
 }
 
 const renderImages = (images) => {
@@ -95,16 +95,16 @@ const renderImages = (images) => {
     images.forEach(image => {
         const newImage = document.createElement("img");
         newImage.src = image.largeImageURL;
-        newImage.className = "image";
+        newImage.className = "image-gallery__img";
 
         // Add mango as alt image
         newImage.setAttribute("alt", image.tags);
-        document.getElementById("image_container").appendChild(newImage);
+        document.getElementById("image-gallery").appendChild(newImage);
 
         const modal = createModal(image);
         document.getElementById("main").appendChild(modal);
 
-        const modalCloseBtn = document.getElementById(`close_btn_${image.id}`);
+        const modalCloseBtn = document.getElementById(`close-btn__${image.id}`);
         modalCloseBtn.addEventListener("click", () => toggleModel(image.id));
         newImage.addEventListener("click", () => toggleModel(image.id));
     })

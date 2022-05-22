@@ -16,6 +16,8 @@
   },
   "homepage": "https://github.com/hunkim2/image-list#readme",
   "devDependencies": {
-    "parcel": "^2.5.0"
+    "@parcel/transformer-sass": "^2.5.0",
+    "parcel": "^2.5.0",
+    "sass": "^1.52.1"
   }
 }
