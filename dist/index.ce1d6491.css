@@ -1,3 +1,17 @@
+@keyframes pulse {
+  0% {
+    background-color: #a5a5a51a;
+  }
+
+  50% {
+    background-color: #a5a5a566;
+  }
+
+  100% {
+    background-color: #18181800;
+  }
+}
+
 .main {
   padding: 30px;
   font-family: Arial, Helvetica, sans-serif;
@@ -16,6 +30,12 @@
   margin-left: 20px;
 }
 
+.per-page {
+  justify-content: end;
+  padding-right: 30px;
+  display: flex;
+}
+
 .image-gallery {
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
@@ -31,6 +51,14 @@
 .image-gallery__img:hover {
   transform: translate(-2px, -2px);
   box-shadow: 8px 8px #add8e6;
+}
+
+.image-gallery__img.lazy {
+  width: 150px;
+  height: 250px;
+  background-image: none;
+  border: none;
+  animation: pulse 1s ease-in-out infinite;
 }
 
 @media (max-width: 800px) {

@@ -6,9 +6,17 @@
   <body>
     <div id="main" class="container">
       <header class="header">
-        <img class="header__logo" height="50" class="logo" src="/src/assets/dog-logo.png"; />
+        <img id="logo" class="header__logo" height="50" class="logo" src="/src/assets/dog-logo.png"; />
         <h1 class="header__title">Doggo Photo Gallery</h1>
       </header>
+      <div id="per-page" class="per-page">
+        Images Per Page: &nbsp;
+        <select id="per-page__select" class="per-page__select">
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+      </div>
       <div id="image-gallery" class="image-gallery"></div>
       <div id="pagination-container"></div>
     </div>

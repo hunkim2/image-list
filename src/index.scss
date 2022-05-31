@@ -1,4 +1,17 @@
 @import "utilities/variables";
+
+@keyframes pulse {
+    0% {
+        background-color: rgba(165, 165, 165, 0.1);
+      }
+      50% {
+        background-color: rgba(165, 165, 165, 0.401);
+      }
+      100% {
+        background-color: rgba(24, 24, 24, 0);
+      }
+}
+
 .main {
     padding: $md-spacing;
     font-family: Arial, Helvetica, sans-serif;
@@ -16,6 +29,12 @@
     }
 }
 
+.per-page {
+    display: flex;
+    justify-content: end;
+    padding-right: $md-spacing;
+}
+
 .image-gallery {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -25,10 +44,16 @@
     &__img {
         width: 150px;
         transition: all 0.2s ease-in;
-
         &:hover {
             transform: translate(-2px, -2px);
             box-shadow: 8px 8px lightblue;
+        }
+        &.lazy {
+            background-image: none;
+            width: 150px;
+            height: 250px;
+            animation: pulse 1s infinite ease-in-out;
+            border: none;
         }
     }
 }
