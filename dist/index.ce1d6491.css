@@ -26,6 +26,10 @@
   display: flex;
 }
 
+.header__logo {
+  cursor: grab;
+}
+
 .header__title {
   margin-left: 20px;
 }

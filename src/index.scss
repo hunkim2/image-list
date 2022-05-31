@@ -24,6 +24,9 @@
     margin: $md-spacing;
     border-bottom:1px solid rgba(0, 0, 0, 0.5);
     padding-bottom: $sm-spacing;
+    &__logo {
+        cursor: grab;
+    }
     &__title {
         margin-left: $sm-spacing;
     }
